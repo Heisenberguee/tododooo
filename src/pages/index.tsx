@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import randomColor from "randomcolor";
 import { IoTrashOutline } from "react-icons/io5";
 import { setDefaultHighWaterMark } from "stream";
-
+import { DatePicker } from 'rsuite';
 
 
 type ToDo = {
@@ -24,7 +24,7 @@ export default function Home() {
   const [text, setText] = useState("");
   const todo: ToDo[] = [];
   const [list, setList] = useState(todo);
-  const [date, setDate] = useState(new Date().toISOString());
+  const [date, setDate] = useState(new Date());
   const [modal, setModal] = useState(false)
   const [title, setTitle] = useState("")
   const Aim = useRef<HTMLInputElement>(null)
@@ -41,7 +41,7 @@ export default function Home() {
     }
     const newTodo: ToDo = {
       text: text,
-      date: date,
+      date: date.toISOString(),
       completed: false,
       color: randomColor({ luminosity: 'light' })
     };
@@ -64,7 +64,7 @@ export default function Home() {
   }
 
   function eliminate() {
-    if(!confirm("are you sure you want to delete all?")) return
+    if (!confirm("are you sure you want to delete all?")) return
     setList([]);
     localStorage.clear();
   }
@@ -83,54 +83,53 @@ export default function Home() {
         <div className="Elon"
           onClick={() => toggleComplete(index)}
           key={index} style={{ backgroundColor: t.color }}>
-
+          <div className="Date">{diff(new Date(), t.date)}</div>
           <span className="Meloni" style={{ textDecoration: t.completed ? "line-through" : "none" }}>
             {t.text}
           </span>
 
-          <span className="Date">{diff(new Date(), t.date)}</span>
+
 
           <button className="Johnson" onClick={(e) => {
             e.stopPropagation()
             setList(list.filter((_, i) => i !== index))
-            localStorage.setItem("state",JSON.stringify(list.filter((_, i) => i !== index)))
+            localStorage.setItem("state", JSON.stringify(list.filter((_, i) => i !== index)))
           }}><IoTrashOutline /></button>
         </div>
       ))}
-        <div className="Add Elon" onClick={() =>{
+        <div className="Add Elon" onClick={() => {
           setModal(!modal)
           setTimeout(() => Aim.current?.focus(), 1)
-          }}>
+        }}>
           <span>+</span>
 
         </div>
       </div>
       {modal === true ? <div className="Layer"
-      
-      onClick={() => setModal(!modal)}
-      
-      
+
+        onClick={() => setModal(!modal)}
+
+
       ></div> : null}
 
       {modal === true ? <div className="Dialog">
-        <input
-          type="date"
-          value={date.split("T")[0]}
-          onChange={(e) => setDate(new Date(e.target.value).toISOString())}
+        <DatePicker className="calendar"
+          value={date}
+          onChange={(e) => setDate(e || new Date())}
         />
         <form onSubmit={(e) => e.preventDefault()}>
           <input value={text}
-          ref={Aim}
+            ref={Aim}
             onChange={(e) => setText(e.target.value)}
           />
 
-          <button onClick={add} className="add">add</button>
+          <button onClick={add} className="add">add the due date and details</button>
         </form>
       </div> : null}
 
-      <button className = "allDelete" onClick={eliminate}>remove all items</button>
+      <button className="allDelete" onClick={eliminate}>remove all items</button>
 
-    
+
     </div>
   );
 }

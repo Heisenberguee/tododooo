@@ -55,7 +55,7 @@ html{color:#333}
     height: 160px;
     padding: 15px;
     border-radius: 15;
-    transition: all 5.5s;
+    transition: all .5s;
 }
 
 .Layer{
@@ -129,4 +129,8 @@ input {
 
 .Date{
     margin-left: 6px;
+}
+
+.calendar{
+    width: 135px;
 }
