@@ -120,7 +120,7 @@ export default function Home() {
         />
         <form onSubmit={(e) => e.preventDefault()}>
           <input value={text}
-          ref = {Aim}
+          ref={Aim}
             onChange={(e) => setText(e.target.value)}
           />
 
