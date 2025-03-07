@@ -1,42 +1,132 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+h2 {
+    text-align:center;
+    color: #333;
+    font-size: 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.Meloni{
+    font-size: 24px;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+html{color:#333}
+.todo-item{
+    align-items:left;
+    padding: 5px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.AfD{
+     display:flex;
+     flex-wrap: wrap;
+     
+}
+.Elon{
+    width: 240px;
+    height: 240px;
+    margin:13px;
+    padding: 4%;
+    border-radius: 5%;
+    position: relative;
+    cursor:pointer;
+}
+.Add {
+    background-color:rgb(247, 243, 243);
+    font-size: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Johnson{
+    position:absolute;
+    bottom: 14px;
+    right: 14px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 19px;
 }
 
-* {
+.Dialog{
+    position: fixed;
+    top: calc(50% - 25px);
+    left: 75px;
+    background-color: white;
+    border: 1px rgb(241, 220, 255) solid;
+    width: calc(100vw - 150px);
+    height: 160px;
+    padding: 15px;
+    border-radius: 15;
+    transition: all 5.5s;
+}
+
+.Layer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color:#a6a4bcd2;
+    top: 0;
+    left: 0;
+    transition: all .5s;
+}
+
+/* CSS */
+.add {
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 2.7rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 11px;
 }
 
-a {
-  color: inherit;
+.add:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}
+
+input {
+    width: 100%;
+    height: 2rem;
+    margin-top: 11px;
+}
+
+/* CSS */
+.allDelete {
+  background: #e62143;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;font-size: 1.15em;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 33.4929px;
+  padding: .4em .5em;
+  text-align: center;
   text-decoration: none;
+  text-decoration-skip-ink: auto;
+  text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+  text-underline-offset: 1px;
+  transition: all .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 200px;
+  word-break: break-word;
+  border: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.Date{
+    margin-left: 6px;
 }
